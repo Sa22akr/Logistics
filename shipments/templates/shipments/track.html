@@ -1,0 +1,48 @@
+{% extends 'shipments/base.html' %}
+
+{% block title %}Track Parcel | Civic Logistics{% endblock %}
+
+{% block content %}
+
+<section class="track-section">
+  <div class="track-box">
+    <p class="tagline">Parcel Tracking</p>
+    <h1>Track your delivery</h1>
+    <p class="track-text">
+      Enter your Civic Logistics tracking number to check your parcel status.
+    </p>
+
+    <form method="POST" class="track-form">
+      {% csrf_token %}
+      <input 
+        type="text" 
+        name="tracking_number" 
+        placeholder="Enter tracking number e.g. CL12345678"
+        required
+      >
+      <button type="submit" class="btn primary">Track Parcel</button>
+    </form>
+
+    {% if error %}
+      <div class="error-box">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    {% if shipment %}
+      <div class="result-card">
+        <h2>Tracking Result</h2>
+
+        <p><strong>Tracking Number:</strong> {{ shipment.tracking_number }}</p>
+        <p><strong>Status:</strong> <span class="status-pill">{{ shipment.status }}</span></p>
+        <p><strong>Sender:</strong> {{ shipment.sender_name }}</p>
+        <p><strong>Receiver:</strong> {{ shipment.receiver_name }}</p>
+        <p><strong>Pickup Address:</strong> {{ shipment.pickup_address }}</p>
+        <p><strong>Delivery Address:</strong> {{ shipment.delivery_address }}</p>
+        <p><strong>Created:</strong> {{ shipment.created_at }}</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}
