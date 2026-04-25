@@ -16,8 +16,8 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#" class="btn primary">Book a Delivery</a>
-      <a href="#" class="btn secondary">Track Parcel</a>
+      <a href="{% url 'book_shipment' %}" class="btn primary">Book a Delivery</a>
+      <a href="{% url 'track_shipment' %}" class="btn secondary">Track Parcel</a>
     </div>
   </div>
 
@@ -67,7 +67,7 @@
   <h2>Ready to send your parcel?</h2>
   <p>Book your first delivery with Civic Logistics today.</p>
 
-  <a href="#" class="btn primary">Get Started</a>
+  <a href="{% url 'book_shipment' %}" class="btn primary">Get Started</a>
 </section>
 
 {% endblock %}

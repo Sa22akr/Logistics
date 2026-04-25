@@ -32,6 +32,12 @@
       z-index: 100;
     }
 
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
     .logo img {
       height: 45px;
       width: auto;
@@ -229,6 +235,52 @@
       border-radius: 20px;
     }
 
+    /* BOOKING PAGE */
+    .booking-section {
+      min-height: 80vh;
+      padding: 80px 8%;
+      background: linear-gradient(135deg, #f5f7fb, #ffffff);
+    }
+
+    .booking-box {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 45px;
+      border-radius: 22px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .booking-box h1 {
+      font-size: 42px;
+      color: #123C8C;
+      margin-bottom: 14px;
+    }
+
+    .booking-form {
+      margin-top: 30px;
+    }
+
+    .booking-form h3 {
+      margin: 28px 0 14px;
+      color: #123C8C;
+    }
+
+    .booking-form input,
+    .booking-form textarea,
+    .booking-form select {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .booking-form button {
+      margin-top: 20px;
+    }
+
     /* SERVICES */
     .services {
       padding: 70px 8%;
@@ -340,9 +392,9 @@
 <body>
 
 <header class="navbar">
-  <div class="logo">
+  <a href="{% url 'home' %}" class="logo">
     <img src="{% static 'shipments/images/logo.png' %}" alt="Civic Logistics Logo">
-  </div>
+  </a>
 
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
@@ -350,7 +402,7 @@
     <a href="{% url 'home' %}">Home</a>
     <a href="#">Services</a>
     <a href="{% url 'track_shipment' %}">Track Parcel</a>
-    <a href="#">Book Delivery</a>
+    <a href="{% url 'book_shipment' %}">Book Delivery</a>
     <a href="#">Contact</a>
   </nav>
 </header>
@@ -361,7 +413,7 @@
 </main>
 
 <footer>
-  <p>&copy; 2020 Civic Logistics. All rights reserved.</p>
+  <p>&copy; 2014 Civic Logistics. All rights reserved.</p>
 </footer>
 
 <script>

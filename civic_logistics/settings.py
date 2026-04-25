@@ -24,19 +24,17 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
 
-    # IMPORTANT (added back)
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-# ✅ FIXED HERE
 ROOT_URLCONF = 'civic_logistics.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # you can add global templates later if needed
+        'DIRS': [],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -58,5 +56,14 @@ DATABASES = {
     }
 }
 
-# Static files (needed later for styling)
+# Static files
 STATIC_URL = '/static/'
+
+# Timezone & localisation (FIXED)
+LANGUAGE_CODE = 'en-gb'
+
+TIME_ZONE = 'Europe/London'
+
+USE_I18N = True
+USE_L10N = True  # ensures proper formatting
+USE_TZ = True

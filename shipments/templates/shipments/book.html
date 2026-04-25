@@ -1,0 +1,41 @@
+{% extends 'shipments/base.html' %}
+
+{% block title %}Book Delivery | Civic Logistics{% endblock %}
+
+{% block content %}
+
+<section class="booking-section">
+  <div class="booking-box">
+    <p class="tagline">Book a Delivery</p>
+    <h1>Create a shipment</h1>
+    <p class="track-text">
+      Fill in the delivery details below. A tracking number will be generated automatically.
+    </p>
+
+    <form method="POST" class="booking-form">
+      {% csrf_token %}
+
+      <h3>Sender Details</h3>
+      {{ form.sender_name }}
+      {{ form.sender_email }}
+      {{ form.sender_phone }}
+
+      <h3>Receiver Details</h3>
+      {{ form.receiver_name }}
+      {{ form.receiver_phone }}
+
+      <h3>Addresses</h3>
+      {{ form.pickup_address }}
+      {{ form.delivery_address }}
+
+      <h3>Parcel Details</h3>
+      {{ form.parcel_size }}
+      {{ form.parcel_weight }}
+      {{ form.delivery_option }}
+
+      <button type="submit" class="btn primary">Submit Booking</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

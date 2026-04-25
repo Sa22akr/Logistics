@@ -1,0 +1,31 @@
+{% extends 'shipments/base.html' %}
+
+{% block title %}Booking Successful | Civic Logistics{% endblock %}
+
+{% block content %}
+
+<section class="track-section">
+  <div class="track-box">
+    <p class="tagline">Booking Confirmed</p>
+    <h1>Your delivery has been booked</h1>
+
+    <p class="track-text">
+      Keep this tracking number safe. You can use it to track your parcel.
+    </p>
+
+    <div class="result-card">
+      <h2>Tracking Number</h2>
+      <p><strong>{{ shipment.tracking_number }}</strong></p>
+      <p><strong>Status:</strong> <span class="status-pill">{{ shipment.status }}</span></p>
+      <p><strong>Receiver:</strong> {{ shipment.receiver_name }}</p>
+      <p><strong>Delivery Option:</strong> {{ shipment.delivery_option }}</p>
+    </div>
+
+    <br>
+
+    <a href="{% url 'track_shipment' %}" class="btn primary">Track Parcel</a>
+    <a href="{% url 'home' %}" class="btn secondary">Back Home</a>
+  </div>
+</section>
+
+{% endblock %}
