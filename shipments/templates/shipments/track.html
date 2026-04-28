@@ -4,44 +4,106 @@
 
 {% block content %}
 
-<section class="track-section">
-  <div class="track-box">
-    <p class="tagline">Parcel Tracking</p>
-    <h1>Track your delivery</h1>
-    <p class="track-text">
-      Enter your Civic Logistics tracking number to check your parcel status.
-    </p>
+<section class="tracking-section">
+  <div class="tracking-container">
 
-    <form method="POST" class="track-form">
-      {% csrf_token %}
-      <input 
-        type="text" 
-        name="tracking_number" 
-        placeholder="Enter tracking number e.g. CL12345678"
-        required
-      >
-      <button type="submit" class="btn primary">Track Parcel</button>
-    </form>
+    <div class="tracking-box">
+      <p class="tagline">Parcel Tracking</p>
+      <h1>Track your delivery</h1>
+      <p class="tracking-text">
+        Enter your tracking number below to view the current delivery status of your parcel.
+      </p>
 
-    {% if error %}
-      <div class="error-box">
-        {{ error }}
-      </div>
-    {% endif %}
+      <form method="GET" class="tracking-form">
+        <input 
+          type="text" 
+          name="tracking_number" 
+          placeholder="Enter tracking number"
+          value="{{ request.GET.tracking_number }}"
+          required
+        >
+        <button type="submit" class="btn primary">Track Parcel</button>
+      </form>
+
+      {% if error %}
+        <div class="tracking-error">
+          {{ error }}
+        </div>
+      {% endif %}
+    </div>
 
     {% if shipment %}
-      <div class="result-card">
-        <h2>Tracking Result</h2>
-
-        <p><strong>Tracking Number:</strong> {{ shipment.tracking_number }}</p>
-        <p><strong>Status:</strong> <span class="status-pill">{{ shipment.status }}</span></p>
-        <p><strong>Sender:</strong> {{ shipment.sender_name }}</p>
-        <p><strong>Receiver:</strong> {{ shipment.receiver_name }}</p>
-        <p><strong>Pickup Address:</strong> {{ shipment.pickup_address }}</p>
-        <p><strong>Delivery Address:</strong> {{ shipment.delivery_address }}</p>
-        <p><strong>Created:</strong> {{ shipment.created_at }}</p>
+    <div class="tracking-result">
+      <div class="tracking-result-header">
+        <div>
+          <p class="tagline">Current Shipment</p>
+          <h2>{{ shipment.tracking_number }}</h2>
+        </div>
+        <span class="status-pill">{{ shipment.status }}</span>
       </div>
+
+      <div class="tracking-details-grid">
+        <div class="detail-card">
+          <span>Receiver</span>
+          <strong>{{ shipment.receiver_name }}</strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Delivery Option</span>
+          <strong>{{ shipment.delivery_option }}</strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Pickup Address</span>
+          <strong>{{ shipment.pickup_address }}</strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Delivery Address</span>
+          <strong>{{ shipment.delivery_address }}</strong>
+        </div>
+      </div>
+
+      <div class="tracking-timeline">
+        <h3>Delivery Progress</h3>
+
+        <div class="timeline">
+          <div class="timeline-step active">
+            <span></span>
+            <div>
+              <strong>Booked</strong>
+              <p>Your shipment has been created.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step active">
+            <span></span>
+            <div>
+              <strong>Collected</strong>
+              <p>Your parcel is ready for courier handling.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <span></span>
+            <div>
+              <strong>In Transit</strong>
+              <p>Your parcel is on the move.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <span></span>
+            <div>
+              <strong>Delivered</strong>
+              <p>Parcel successfully delivered to the receiver.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     {% endif %}
+
   </div>
 </section>
 

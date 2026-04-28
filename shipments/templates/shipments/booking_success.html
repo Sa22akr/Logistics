@@ -4,27 +4,34 @@
 
 {% block content %}
 
-<section class="track-section">
-  <div class="track-box">
-    <p class="tagline">Booking Confirmed</p>
-    <h1>Your delivery has been booked</h1>
+<section class="success-section">
+  <div class="success-box">
 
-    <p class="track-text">
-      Keep this tracking number safe. You can use it to track your parcel.
+    <div class="success-icon">✓</div>
+
+    <p class="tagline">Booking Confirmed</p>
+    <h1>Your delivery is scheduled</h1>
+
+    <p class="success-text">
+      Your shipment has been successfully created. Use your tracking number below to monitor delivery progress.
     </p>
 
-    <div class="result-card">
-      <h2>Tracking Number</h2>
-      <p><strong>{{ shipment.tracking_number }}</strong></p>
-      <p><strong>Status:</strong> <span class="status-pill">{{ shipment.status }}</span></p>
-      <p><strong>Receiver:</strong> {{ shipment.receiver_name }}</p>
-      <p><strong>Delivery Option:</strong> {{ shipment.delivery_option }}</p>
+    <div class="success-card">
+      <p class="label">Tracking Number</p>
+      <h2>{{ shipment.tracking_number }}</h2>
+
+      <div class="success-details">
+        <p><strong>Status:</strong> <span class="status-pill">{{ shipment.status }}</span></p>
+        <p><strong>Receiver:</strong> {{ shipment.receiver_name }}</p>
+        <p><strong>Delivery Option:</strong> {{ shipment.delivery_option }}</p>
+      </div>
     </div>
 
-    <br>
+    <div class="success-actions">
+      <a href="{% url 'track_shipment' %}" class="btn primary">Track Parcel</a>
+      <a href="{% url 'home' %}" class="btn secondary">Back Home</a>
+    </div>
 
-    <a href="{% url 'track_shipment' %}" class="btn primary">Track Parcel</a>
-    <a href="{% url 'home' %}" class="btn secondary">Back Home</a>
   </div>
 </section>
 
