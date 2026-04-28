@@ -4,70 +4,147 @@
 
 {% block content %}
 
-<section class="hero">
+<section class="hero hero-split">
   <div class="hero-content">
-    <p class="tagline">UK Courier & Delivery Service</p>
+    <p class="tagline">Smart UK Courier Network</p>
 
-    <h1>Reliable courier solutions, made simple.</h1>
+    <h1>Move parcels with confidence, speed, and full visibility.</h1>
 
     <p class="hero-text">
-      Civic Logistics helps individuals and businesses send parcels safely,
-      quickly, and professionally across the UK.
+      Civic Logistics provides modern courier solutions for individuals,
+      online sellers, and businesses that need reliable collection, delivery,
+      and parcel tracking across the UK.
     </p>
 
     <div class="hero-buttons">
       <a href="{% url 'book_shipment' %}" class="btn primary">Book a Delivery</a>
-      <a href="{% url 'track_shipment' %}" class="btn secondary">Track Parcel</a>
+      <a href="{% url 'track_shipment' %}" class="btn secondary">Track Your Parcel</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <strong>24/7</strong>
+        <span>Tracking Access</span>
+      </div>
+      <div>
+        <strong>UK-wide</strong>
+        <span>Courier Coverage</span>
+      </div>
+      <div>
+        <strong>Fast</strong>
+        <span>Delivery Options</span>
+      </div>
     </div>
   </div>
 
-  <div class="hero-card">
-    <h3>Fast Delivery</h3>
-    <p>Same-day, next-day and scheduled courier services.</p>
+  <div class="delivery-panel">
+    <div class="panel-header">
+      <span class="live-dot"></span>
+      <p>Live Delivery Preview</p>
+    </div>
 
-    <div class="status-box">
-      <span>Parcel Status</span>
-      <strong>In Transit</strong>
+    <div class="route-card">
+      <div>
+        <span>Pickup</span>
+        <strong>Hatfield</strong>
+      </div>
+      <div class="route-line"></div>
+      <div>
+        <span>Destination</span>
+        <strong>London</strong>
+      </div>
+    </div>
+
+    <div class="tracking-card">
+      <p>Current Status</p>
+      <h3>Driver Assigned</h3>
+      <small>Your parcel is ready for collection.</small>
+    </div>
+
+    <div class="mini-progress">
+      <span class="active"></span>
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+
+<section class="how-it-works">
+  <p class="tagline center">Simple Process</p>
+  <h2>Send a parcel in three easy steps</h2>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <span>01</span>
+      <h3>Book Online</h3>
+      <p>Enter parcel details, pickup address, destination, and delivery preference.</p>
+    </div>
+
+    <div class="step-card">
+      <span>02</span>
+      <h3>We Collect</h3>
+      <p>A courier collects your parcel and updates the delivery status.</p>
+    </div>
+
+    <div class="step-card">
+      <span>03</span>
+      <h3>Track & Deliver</h3>
+      <p>Follow the parcel journey until it reaches the recipient safely.</p>
     </div>
   </div>
 </section>
 
 
 <section class="services">
-  <h2>Our Services</h2>
-  <p class="section-text">
-    Flexible delivery options for personal and business needs.
-  </p>
+  <p class="tagline center">What We Offer</p>
+  <h2>Courier services built for modern delivery needs</h2>
 
   <div class="service-grid">
-    <div class="service-card">
+    <div class="service-card featured">
       <h3>Same-Day Delivery</h3>
-      <p>Urgent parcels delivered quickly and securely.</p>
+      <p>For urgent parcels that need to move quickly and securely.</p>
     </div>
 
     <div class="service-card">
       <h3>Next-Day Delivery</h3>
-      <p>Affordable delivery for less urgent packages.</p>
+      <p>A reliable option for planned deliveries across the UK.</p>
     </div>
 
     <div class="service-card">
-      <h3>Business Courier</h3>
-      <p>Reliable logistics support for companies and retailers.</p>
+      <h3>Business Logistics</h3>
+      <p>Courier support for retailers, offices, and small businesses.</p>
     </div>
 
     <div class="service-card">
-      <h3>Parcel Tracking</h3>
-      <p>Track your delivery from collection to completion.</p>
+      <h3>Real-Time Tracking</h3>
+      <p>Keep customers updated with clear parcel progress information.</p>
     </div>
   </div>
 </section>
 
 
-<section class="cta">
-  <h2>Ready to send your parcel?</h2>
-  <p>Book your first delivery with Civic Logistics today.</p>
+<section class="trust-section">
+  <div>
+    <p class="tagline">Why Civic Logistics?</p>
+    <h2>Designed for speed, trust, and transparency.</h2>
+  </div>
 
-  <a href="{% url 'book_shipment' %}" class="btn primary">Get Started</a>
+  <div class="trust-list">
+    <p>✓ Clear booking process</p>
+    <p>✓ Professional courier handling</p>
+    <p>✓ Delivery status updates</p>
+    <p>✓ Suitable for individuals and businesses</p>
+  </div>
+</section>
+
+
+<section class="cta">
+  <h2>Ready to move your next parcel?</h2>
+  <p>Book a delivery today and keep your shipment moving with Civic Logistics.</p>
+
+  <a href="{% url 'book_shipment' %}" class="btn primary">Start Booking</a>
 </section>
 
 {% endblock %}

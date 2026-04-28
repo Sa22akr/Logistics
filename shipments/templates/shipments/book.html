@@ -5,36 +5,80 @@
 {% block content %}
 
 <section class="booking-section">
-  <div class="booking-box">
-    <p class="tagline">Book a Delivery</p>
-    <h1>Create a shipment</h1>
-    <p class="track-text">
-      Fill in the delivery details below. A tracking number will be generated automatically.
-    </p>
+  <div class="booking-container">
 
-    <form method="POST" class="booking-form">
-      {% csrf_token %}
+    <div class="booking-box">
+      <p class="tagline">Create Shipment</p>
+      <h1>Book your delivery</h1>
+      <p class="track-text">
+        Enter your parcel details and we’ll handle the rest. A tracking number will be generated instantly.
+      </p>
 
-      <h3>Sender Details</h3>
-      {{ form.sender_name }}
-      {{ form.sender_email }}
-      {{ form.sender_phone }}
+      <form method="POST" class="booking-form">
+        {% csrf_token %}
 
-      <h3>Receiver Details</h3>
-      {{ form.receiver_name }}
-      {{ form.receiver_phone }}
+        <div class="form-section">
+          <h3>Sender Information</h3>
+          <div class="form-row-3">
+            {{ form.sender_name }}
+            {{ form.sender_email }}
+            {{ form.sender_phone }}
+          </div>
+        </div>
 
-      <h3>Addresses</h3>
-      {{ form.pickup_address }}
-      {{ form.delivery_address }}
+        <div class="form-section">
+          <h3>Receiver Information</h3>
+          <div class="form-row">
+            {{ form.receiver_name }}
+            {{ form.receiver_phone }}
+          </div>
+        </div>
 
-      <h3>Parcel Details</h3>
-      {{ form.parcel_size }}
-      {{ form.parcel_weight }}
-      {{ form.delivery_option }}
+        <div class="form-section">
+          <h3>Addresses</h3>
+          <div class="form-row">
+            {{ form.pickup_address }}
+            {{ form.delivery_address }}
+          </div>
+        </div>
 
-      <button type="submit" class="btn primary">Submit Booking</button>
-    </form>
+        <div class="form-section">
+          <h3>Parcel Details</h3>
+          <div class="form-row-3">
+            {{ form.parcel_size }}
+            {{ form.parcel_weight }}
+            {{ form.delivery_option }}
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary full">Confirm Booking</button>
+      </form>
+    </div>
+
+    <div class="booking-summary">
+      <h3>Delivery Summary</h3>
+
+      <div class="summary-card">
+        <p>Service Type</p>
+        <strong>Standard Delivery</strong>
+      </div>
+
+      <div class="summary-card">
+        <p>Estimated Delivery</p>
+        <strong>1–2 Working Days</strong>
+      </div>
+
+      <div class="summary-card">
+        <p>Tracking</p>
+        <strong>Included</strong>
+      </div>
+
+      <div class="summary-highlight">
+        <p>Secure & Reliable</p>
+        <span>Your parcel is handled with care from pickup to delivery.</span>
+      </div>
+    </div>
+
   </div>
 </section>
 

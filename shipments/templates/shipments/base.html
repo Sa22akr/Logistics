@@ -19,12 +19,12 @@
       color: #2B2B2B;
     }
 
-    /* NAVBAR */
+    /* NAVBAR (FIXED) */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 8%;
+      padding: 10px 16px;
       background: white;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       position: sticky;
@@ -32,17 +32,21 @@
       z-index: 100;
     }
 
+    /* LOGO FIX */
     .logo {
-      text-decoration: none;
       display: flex;
       align-items: center;
+      height: 55px;
+      text-decoration: none;
     }
 
     .logo img {
-      height: 45px;
+      height: 100%;
       width: auto;
-      display: block;
       object-fit: contain;
+      display: block;
+      margin: 0;
+      padding: 0;
     }
 
     nav {
@@ -78,9 +82,9 @@
       min-height: 80vh;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
       gap: 40px;
       padding: 70px 8%;
+      align-items: center;
       background: linear-gradient(135deg, #f5f7fb, #ffffff);
     }
 
@@ -115,16 +119,11 @@
       text-decoration: none;
       font-weight: 700;
       margin-right: 12px;
-      cursor: pointer;
     }
 
     .primary {
       background: #123C8C;
       color: white;
-    }
-
-    .primary:hover {
-      background: #0e2f6b;
     }
 
     .secondary {
@@ -133,170 +132,95 @@
       border: 1px solid #123C8C;
     }
 
-    /* HERO CARD */
-    .hero-card {
+    /* NEW HERO ELEMENTS */
+    .hero-stats {
+      display: flex;
+      gap: 18px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats div {
+      background: white;
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .hero-stats strong {
+      display: block;
+      color: #123C8C;
+    }
+
+    .delivery-panel {
       background: #123C8C;
       color: white;
-      padding: 36px;
-      border-radius: 22px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      padding: 34px;
+      border-radius: 28px;
     }
 
-    .hero-card h3 {
-      font-size: 28px;
-      margin-bottom: 12px;
+    .panel-header {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
-    .hero-card p {
-      color: #d1d5db;
-      line-height: 1.6;
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background: #FF7A1A;
+      border-radius: 50%;
     }
 
-    .status-box {
-      margin-top: 30px;
+    .route-card,
+    .tracking-card {
       background: white;
       color: #2B2B2B;
       padding: 20px;
-      border-radius: 14px;
-    }
-
-    /* TRACKING PAGE */
-    .track-section {
-      min-height: 80vh;
-      padding: 80px 8%;
-      background: linear-gradient(135deg, #f5f7fb, #ffffff);
-    }
-
-    .track-box {
-      max-width: 850px;
-      margin: auto;
-      background: white;
-      padding: 45px;
-      border-radius: 22px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    }
-
-    .track-box h1 {
-      font-size: 42px;
-      color: #123C8C;
-      margin-bottom: 14px;
-    }
-
-    .track-text {
-      color: #666;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    .track-form {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .track-form input {
-      flex: 1;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .error-box {
-      background: #fff1f1;
-      color: #b91c1c;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    .result-card {
-      margin-top: 30px;
-      background: #f7f9fc;
-      padding: 25px;
       border-radius: 16px;
-      border-left: 5px solid #FF7A1A;
+      margin-bottom: 15px;
     }
 
-    .result-card h2 {
-      color: #123C8C;
-      margin-bottom: 18px;
+    .mini-progress {
+      display: flex;
+      gap: 8px;
     }
 
-    .result-card p {
-      margin-bottom: 12px;
-      color: #333;
-    }
-
-    .status-pill {
-      background: #123C8C;
-      color: white;
-      padding: 6px 12px;
+    .mini-progress span {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.3);
       border-radius: 20px;
     }
 
-    /* BOOKING PAGE */
-    .booking-section {
-      min-height: 80vh;
-      padding: 80px 8%;
-      background: linear-gradient(135deg, #f5f7fb, #ffffff);
+    .mini-progress .active {
+      background: #FF7A1A;
     }
 
-    .booking-box {
-      max-width: 900px;
-      margin: auto;
+    /* HOW IT WORKS */
+    .how-it-works {
+      padding: 70px 8%;
+      text-align: center;
       background: white;
-      padding: 45px;
-      border-radius: 22px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
     }
 
-    .booking-box h1 {
-      font-size: 42px;
-      color: #123C8C;
-      margin-bottom: 14px;
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .booking-form {
-      margin-top: 30px;
-    }
-
-    .booking-form h3 {
-      margin: 28px 0 14px;
-      color: #123C8C;
-    }
-
-    .booking-form input,
-    .booking-form textarea,
-    .booking-form select {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
-    }
-
-    .booking-form button {
-      margin-top: 20px;
+    .step-card {
+      background: #f7f9fc;
+      padding: 28px;
+      border-radius: 18px;
+      text-align: left;
     }
 
     /* SERVICES */
     .services {
       padding: 70px 8%;
       text-align: center;
-    }
-
-    .services h2,
-    .cta h2 {
-      font-size: 36px;
-      margin-bottom: 14px;
-      color: #123C8C;
-    }
-
-    .section-text {
-      color: #666;
-      margin-bottom: 40px;
     }
 
     .service-grid {
@@ -309,23 +233,22 @@
       background: white;
       padding: 28px;
       border-radius: 18px;
-      text-align: left;
       box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-      transition: 0.3s;
     }
 
-    .service-card:hover {
-      transform: translateY(-5px);
+    /* TRUST */
+    .trust-section {
+      padding: 70px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      background: #f7f9fc;
     }
 
-    .service-card h3 {
-      margin-bottom: 12px;
-      color: #123C8C;
-    }
-
-    .service-card p {
-      color: #666;
-      line-height: 1.6;
+    .trust-list {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
     }
 
     /* CTA */
@@ -336,9 +259,58 @@
       color: white;
     }
 
-    .cta p {
+    /* BOOKING PAGE */
+    .booking-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .form-section {
       margin-bottom: 25px;
-      color: #e5e7eb;
+    }
+
+    .form-section h3 {
+      color: #123C8C;
+      margin-bottom: 10px;
+    }
+
+    .full {
+      width: 100%;
+    }
+
+    .booking-summary {
+      background: #123C8C;
+      color: white;
+      padding: 30px;
+      border-radius: 22px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .booking-section {
+  padding: 70px 8%;
+  background: #f7f9fc;
+}
+
+.booking-box {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+    .summary-card {
+      background: white;
+      color: #2B2B2B;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 15px;
+    }
+
+    .summary-card strong {
+      color: #123C8C;
     }
 
     footer {
@@ -363,7 +335,6 @@
         background: white;
         flex-direction: column;
         padding: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
       }
 
       nav.active {
@@ -374,16 +345,11 @@
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .service-grid {
+      .steps-grid,
+      .service-grid,
+      .trust-section,
+      .booking-container {
         grid-template-columns: 1fr;
-      }
-
-      .track-form {
-        flex-direction: column;
       }
     }
   </style>
@@ -418,8 +384,7 @@
 
 <script>
   function toggleMenu() {
-    const navMenu = document.getElementById("navMenu");
-    navMenu.classList.toggle("active");
+    document.getElementById("navMenu").classList.toggle("active");
   }
 </script>
 
