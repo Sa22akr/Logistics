@@ -1,4 +1,5 @@
 {% extends 'shipments/base.html' %}
+{% load static %}
 
 {% block title %}Home | Civic Logistics{% endblock %}
 
@@ -67,6 +68,110 @@
       <span></span>
       <span></span>
     </div>
+  </div>
+</section>
+
+
+<section class="promo-section">
+  <button class="promo-arrow left" onclick="prevPromoSlide()">‹</button>
+
+  <div class="promo-card">
+    <div class="promo-content">
+      <h2 id="promoTitle">Send tips and smiles</h2>
+      <p id="promoText">
+        You can now book, manage and track your parcels easily with Civic Logistics.
+      </p>
+
+      <div class="promo-buttons">
+        <a href="{% url 'book_shipment' %}" class="btn primary">Book Delivery</a>
+        <a href="{% url 'track_shipment' %}" class="btn secondary">Track Parcel</a>
+      </div>
+    </div>
+
+    <div class="promo-image">
+      <img id="promoImage" src="{% static 'shipments/images/courier-promo.avif' %}" alt="Courier delivery promo">
+    </div>
+  </div>
+
+  <button class="promo-arrow right" onclick="nextPromoSlide()">›</button>
+
+  <div class="promo-dots">
+    <span class="active" onclick="updatePromoSlide(0)"></span>
+    <span onclick="updatePromoSlide(1)"></span>
+    <span onclick="updatePromoSlide(2)"></span>
+  </div>
+</section>
+
+
+<section class="pricing-section">
+  <div class="pricing-table-wrap">
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Weight</th>
+          <th>Standard Delivery</th>
+          <th>Drop-off Delivery</th>
+          <th>Savings</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Postable</td>
+          <td>£2.70</td>
+          <td>£2.62</td>
+          <td>£0.08</td>
+        </tr>
+        <tr>
+          <td>0–1kg</td>
+          <td>£3.29</td>
+          <td>£2.62</td>
+          <td>£0.67</td>
+        </tr>
+        <tr>
+          <td>1–2kg</td>
+          <td>£4.79</td>
+          <td>£2.62</td>
+          <td>£2.17</td>
+        </tr>
+        <tr>
+          <td>2–5kg</td>
+          <td>£6.59</td>
+          <td>£2.62</td>
+          <td>£3.97</td>
+        </tr>
+        <tr>
+          <td>5–10kg</td>
+          <td>£6.68</td>
+          <td>£5.87</td>
+          <td>£0.81</td>
+        </tr>
+        <tr>
+          <td>10–15kg</td>
+          <td>£10.28</td>
+          <td>£9.01</td>
+          <td>£1.27</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pricing-content">
+    <p class="price-logo">SEND</p>
+
+    <h2>Your cheapest way to send parcels</h2>
+
+    <p>
+      Want to send a parcel for a low price? Civic Logistics helps you compare
+      delivery options so you can choose the most affordable service for your parcel.
+    </p>
+
+    <p>
+      Need your parcel delivered faster? Choose a next-day option and keep your
+      shipment moving with reliable tracking from collection to delivery.
+    </p>
+
+    <a href="{% url 'book_shipment' %}" class="price-btn">Send a parcel</a>
   </div>
 </section>
 

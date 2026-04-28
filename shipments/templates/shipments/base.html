@@ -534,9 +534,248 @@
   color: #123C8C;
 }
 
+nav {
+  display: flex;
+  gap: 34px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2B2B2B;
+  font-weight: 700;
+  font-size: 17px;
+  position: relative;
+  padding: 8px 0;
+}
+
+nav a:hover {
+  color: #123C8C;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #FF7A1A;
+  border-radius: 10px;
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
 .timeline-step p {
   color: #666;
   margin-top: 4px;
+}
+
+/* PROMO BANNER */
+/* EVRI-STYLE PROMO CAROUSEL */
+.promo-section {
+  position: relative;
+  background: #08118f;
+  padding: 90px 8% 75px;
+}
+
+.promo-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  max-width: 1300px;
+  margin: auto;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.promo-content {
+  padding: 60px 70px;
+}
+
+.promo-content h2 {
+  font-size: 42px;
+  color: #050a64;
+  margin-bottom: 24px;
+}
+
+.promo-content p {
+  font-size: 23px;
+  line-height: 1.45;
+  color: #050a64;
+  max-width: 700px;
+  margin-bottom: 35px;
+}
+
+.promo-buttons {
+  display: flex;
+  gap: 18px;
+}
+
+.promo-buttons img {
+  height: 54px;
+  width: auto;
+}
+
+.promo-image {
+  height: 360px;
+}
+
+.promo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promo-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: #08118f;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 38px;
+  line-height: 32px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.promo-arrow.left {
+  left: 42px;
+}
+
+.promo-arrow.right {
+  right: 42px;
+}
+
+.promo-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.promo-dots span {
+  width: 10px;
+  height: 10px;
+  background: #c8e8ff;
+  border-radius: 50%;
+  display: block;
+}
+
+.promo-dots .active {
+  width: 25px;
+  border-radius: 999px;
+  background: #51e6ed;
+}
+
+/* PRICING SECTION */
+.pricing-section {
+  padding: 80px 8%;
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.pricing-table-wrap {
+  border: 1px solid #d8e4f2;
+  overflow-x: auto;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #050f6b;
+  font-size: 18px;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 22px;
+  text-align: center;
+}
+
+.pricing-table th {
+  font-weight: 800;
+  background: white;
+}
+
+.pricing-table tbody tr:nth-child(odd) {
+  background: #eef6fb;
+}
+
+.pricing-content {
+  color: #050f6b;
+}
+
+.price-logo {
+  font-size: 76px;
+  font-weight: 900;
+  color: #0788d8;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.pricing-content h2 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.pricing-content p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.price-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  border: 3px solid #0788d8;
+  border-radius: 40px;
+  color: #0070a8;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .promo-card,
+  .pricing-section {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-content {
+    padding: 32px;
+  }
+
+  .promo-content h2,
+  .pricing-content h2 {
+    font-size: 32px;
+  }
+
+  .price-logo {
+    font-size: 48px;
+  }
+
+  .pricing-section {
+    gap: 35px;
+    padding: 55px 6%;
+  }
+
+  .pricing-table {
+    font-size: 14px;
+    min-width: 600px;
+  }
 }
     /* MOBILE */
     @media (max-width: 900px) {
@@ -618,6 +857,54 @@
   function toggleMenu() {
     document.getElementById("navMenu").classList.toggle("active");
   }
+  const slides = [
+    {
+      title: "Send parcels with confidence",
+      text: "Book deliveries, track parcels, and manage your shipments from one simple platform.",
+      image: "{% static 'shipments/images/courier-promo.jpg' %}"
+    },
+    {
+      title: "Track every delivery live",
+      text: "Stay updated from collection to delivery with clear shipment progress.",
+      image: "{% static 'shipments/images/courier-tracking.jpg' %}"
+    },
+    {
+      title: "Flexible courier options",
+      text: "Choose same-day, next-day, or scheduled delivery depending on your needs.",
+      image: "{% static 'shipments/images/courier-van.jpg' %}"
+    }
+  ];
+
+  let currentSlide = 0;
+
+  function updatePromoSlide(index) {
+    const title = document.getElementById("promoTitle");
+    const text = document.getElementById("promoText");
+    const image = document.getElementById("promoImage");
+    const dots = document.querySelectorAll(".promo-dots span");
+
+    if (!title || !text || !image) return;
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    title.textContent = slides[currentSlide].title;
+    text.textContent = slides[currentSlide].text;
+    image.src = slides[currentSlide].image;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentSlide);
+    });
+  }
+
+  function nextPromoSlide() {
+    updatePromoSlide(currentSlide + 1);
+  }
+
+  function prevPromoSlide() {
+    updatePromoSlide(currentSlide - 1);
+  }
+
+  setInterval(nextPromoSlide, 5000);
 </script>
 
 </body>
