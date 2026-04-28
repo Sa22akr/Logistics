@@ -1,0 +1,45 @@
+{% extends 'shipments/base.html' %}
+
+{% block title %}Contact | Civic Logistics{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <p class="tagline">Contact Us</p>
+  <h1>We’re here to help</h1>
+  <p class="hero-text">
+    Have a question about your delivery or need assistance?
+    Get in touch with our team.
+  </p>
+</section>
+
+
+<section class="contact-section">
+  <div class="contact-container">
+
+    <div class="contact-info">
+      <h3>Get in touch</h3>
+
+      <p><strong>Email:</strong> support@civiclogistics.co.uk</p>
+      <p><strong>Phone:</strong> +44 1234 567890</p>
+      <p><strong>Location:</strong> Hatfield, UK</p>
+
+      <p class="contact-note">
+        Our support team is available Monday–Saturday, 8am–8pm.
+      </p>
+    </div>
+
+    <form class="contact-form" method="POST">
+      {% csrf_token %}
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit" class="btn primary full">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+{% endblock %}

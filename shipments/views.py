@@ -6,6 +6,15 @@ from .forms import ShipmentBookingForm
 def home(request):
     return render(request, 'shipments/home.html')
 
+def services(request):
+    return render(request, 'shipments/services.html')
+
+
+def contact(request):
+    return render(request, 'shipments/contact.html')
+
+def careers(request):
+    return render(request, 'shipments/careers.html')
 
 def track_shipment(request):
     shipment = None
@@ -44,3 +53,20 @@ def booking_success(request, tracking_number):
     return render(request, 'shipments/booking_success.html', {
         'shipment': shipment
     })
+
+from django.core.mail import send_mail
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        send_mail(
+            subject=f"Contact Form - {name}",
+            message=message,
+            from_email=email,
+            recipient_list=["your@email.com"],
+        )
+
+    return render(request, 'shipments/contact.html')

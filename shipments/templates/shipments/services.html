@@ -1,0 +1,61 @@
+{% extends 'shipments/base.html' %}
+
+{% block title %}Services | Civic Logistics{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <p class="tagline">Our Services</p>
+  <h1>Courier solutions for every delivery need</h1>
+  <p class="hero-text">
+    From urgent same-day deliveries to reliable business logistics,
+    Civic Logistics provides flexible courier services across the UK.
+  </p>
+</section>
+
+
+<section class="services-section">
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>Same-Day Delivery</h3>
+      <p>Urgent parcels delivered quickly with priority handling.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Next-Day Delivery</h3>
+      <p>Affordable and reliable next-day shipping options.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Business Logistics</h3>
+      <p>Courier solutions tailored for businesses and retailers.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Scheduled Deliveries</h3>
+      <p>Plan deliveries in advance with flexible scheduling.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Parcel Tracking</h3>
+      <p>Track every shipment with real-time updates.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Secure Handling</h3>
+      <p>Your parcels are handled professionally and safely.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="cta">
+  <h2>Ready to send your parcel?</h2>
+  <p>Book a delivery in seconds and keep your shipment moving.</p>
+
+  <a href="{% url 'book_shipment' %}" class="btn primary">Book Now</a>
+</section>
+
+{% endblock %}

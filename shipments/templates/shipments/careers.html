@@ -1,0 +1,112 @@
+{% extends 'shipments/base.html' %}
+{% load static %}
+
+{% block title %}Careers | Civic Logistics{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <p class="tagline">Careers</p>
+  <h1>Join the Civic Logistics team</h1>
+  <p class="hero-text">
+    We are building a modern courier platform focused on reliable delivery,
+    customer trust, and smart logistics across the UK.
+  </p>
+</section>
+
+
+<section class="careers-section">
+  <div class="careers-intro">
+    <h2>Why work with us?</h2>
+    <p>
+      At Civic Logistics, we value reliability, communication, teamwork, and innovation.
+      From operations to analytics, our team works together to improve delivery performance
+      and customer experience.
+    </p>
+  </div>
+
+  <div class="jobs-grid">
+
+    <div class="job-card">
+      <h3>Courier Driver</h3>
+      <p>Support parcel collections and deliveries across local routes.</p>
+      <span>Full-time / Part-time</span>
+    </div>
+
+    <div class="job-card">
+      <h3>Customer Support Assistant</h3>
+      <p>Help customers with bookings, tracking updates, and general enquiries.</p>
+      <span>Remote / Hybrid</span>
+    </div>
+
+    <div class="job-card">
+      <h3>Logistics Coordinator</h3>
+      <p>Manage delivery schedules, driver allocation, and shipment progress.</p>
+      <span>Full-time</span>
+    </div>
+
+    <!-- 🔥 NEW DATA ROLE -->
+    <div class="job-card">
+      <h3>Data Analyst</h3>
+      <p>
+        Analyse delivery performance, customer behaviour, and operational data
+        to improve efficiency and optimise logistics decisions.
+      </p>
+      <span>Full-time / Remote</span>
+    </div>
+
+    <!-- OPTIONAL EXTRA (makes it look VERY real) -->
+    <div class="job-card">
+      <h3>Business Intelligence Analyst</h3>
+      <p>
+        Build dashboards and reports to support strategic decisions across
+        operations and customer experience.
+      </p>
+      <span>Full-time</span>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="team-section">
+  <p class="tagline center">Our People</p>
+  <h2>People currently working with us</h2>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <img src="{% static 'shipments/images/team-1.jpg' %}" alt="">
+      <h3>Daniel Carter</h3>
+      <p>Operations Manager</p>
+    </div>
+
+    <div class="team-card">
+      <img src="{% static 'shipments/images/team-2.jpg' %}" alt="">
+      <h3>Amara Johnson</h3>
+      <p>Customer Support Lead</p>
+    </div>
+
+    <div class="team-card">
+      <img src="{% static 'shipments/images/team-3.jpg' %}" alt="">
+      <h3>Ryan Mitchell</h3>
+      <p>Logistics Coordinator</p>
+    </div>
+
+    <div class="team-card">
+      <img src="{% static 'shipments/images/team-4.jpg' %}" alt="">
+      <h3>Leah Thompson</h3>
+      <p>Courier Team Lead</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="cta">
+  <h2>Want to work with Civic Logistics?</h2>
+  <p>Send us your CV and tell us what role you are interested in.</p>
+  <a href="{% url 'contact' %}" class="btn primary">Contact Us</a>
+</section>
+
+{% endblock %}
