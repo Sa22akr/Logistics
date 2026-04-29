@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -67,3 +70,8 @@ TIME_ZONE = 'Europe/London'
 USE_I18N = True
 USE_L10N = True  # ensures proper formatting
 USE_TZ = True
+
+
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
+SITE_URL = os.getenv("SITE_URL", "http://127.0.0.1:8000")

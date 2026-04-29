@@ -8,17 +8,21 @@
   <div class="booking-container">
 
     <div class="booking-box">
-      <p class="tagline">Create Shipment</p>
-      <h1>Book your delivery</h1>
+      <p class="tagline">Shipment Booking</p>
+      <h1>Book a delivery</h1>
       <p class="track-text">
-        Enter your parcel details and we’ll handle the rest. A tracking number will be generated instantly.
+        Complete the details below to schedule your parcel collection and generate a tracking number.
       </p>
 
       <form method="POST" class="booking-form">
         {% csrf_token %}
 
         <div class="form-section">
-          <h3>Sender Information</h3>
+          <div class="section-heading">
+            <span>01</span>
+            <h3>Sender Details</h3>
+          </div>
+
           <div class="form-row-3">
             {{ form.sender_name }}
             {{ form.sender_email }}
@@ -27,7 +31,11 @@
         </div>
 
         <div class="form-section">
-          <h3>Receiver Information</h3>
+          <div class="section-heading">
+            <span>02</span>
+            <h3>Receiver Details</h3>
+          </div>
+
           <div class="form-row">
             {{ form.receiver_name }}
             {{ form.receiver_phone }}
@@ -35,7 +43,11 @@
         </div>
 
         <div class="form-section">
-          <h3>Addresses</h3>
+          <div class="section-heading">
+            <span>03</span>
+            <h3>Collection & Delivery</h3>
+          </div>
+
           <div class="form-row">
             {{ form.pickup_address }}
             {{ form.delivery_address }}
@@ -43,7 +55,11 @@
         </div>
 
         <div class="form-section">
-          <h3>Parcel Details</h3>
+          <div class="section-heading">
+            <span>04</span>
+            <h3>Parcel Information</h3>
+          </div>
+
           <div class="form-row-3">
             {{ form.parcel_size }}
             {{ form.parcel_weight }}
@@ -51,33 +67,35 @@
           </div>
         </div>
 
-        <button type="submit" class="btn primary full">Confirm Booking</button>
+        <button type="submit" class="btn primary full">Review Price</button>
       </form>
     </div>
 
-    <div class="booking-summary">
-      <h3>Delivery Summary</h3>
+    <aside class="booking-summary">
+      <h3>Booking Summary</h3>
 
       <div class="summary-card">
-        <p>Service Type</p>
-        <strong>Standard Delivery</strong>
+        <p>Tracking Number</p>
+        <strong>Generated after booking</strong>
       </div>
 
       <div class="summary-card">
-        <p>Estimated Delivery</p>
-        <strong>1–2 Working Days</strong>
+        <p>Delivery Coverage</p>
+        <strong>UK-wide</strong>
       </div>
 
       <div class="summary-card">
-        <p>Tracking</p>
-        <strong>Included</strong>
+        <p>Support</p>
+        <strong>Mon–Sat, 8am–8pm</strong>
       </div>
 
       <div class="summary-highlight">
-        <p>Secure & Reliable</p>
-        <span>Your parcel is handled with care from pickup to delivery.</span>
+        <p>Secure delivery process</p>
+        <span>
+          Your shipment details are recorded securely and can be tracked once submitted.
+        </span>
       </div>
-    </div>
+    </aside>
 
   </div>
 </section>

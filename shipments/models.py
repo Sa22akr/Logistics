@@ -9,12 +9,21 @@ def generate_tracking_number():
 
 class Shipment(models.Model):
     STATUS_CHOICES = [
+        ('Pending Payment', 'Pending Payment'),
         ('Booked', 'Booked'),
         ('Collected', 'Collected'),
         ('In Transit', 'In Transit'),
         ('Out for Delivery', 'Out for Delivery'),
         ('Delivered', 'Delivered'),
+        ('Failed', 'Failed'),
         ('Cancelled', 'Cancelled'),
+    ]
+
+    PAYMENT_STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('paid', 'Paid'),
+        ('failed', 'Failed'),
+        ('cancelled', 'Cancelled'),
     ]
 
     PARCEL_SIZE_CHOICES = [
@@ -30,7 +39,11 @@ class Shipment(models.Model):
         ('Same Day', 'Same Day Delivery'),
     ]
 
-    tracking_number = models.CharField(max_length=20, unique=True, default=generate_tracking_number)
+    tracking_number = models.CharField(
+        max_length=20,
+        unique=True,
+        default=generate_tracking_number
+    )
 
     sender_name = models.CharField(max_length=100)
     sender_email = models.EmailField()
@@ -47,7 +60,21 @@ class Shipment(models.Model):
 
     delivery_option = models.CharField(max_length=20, choices=DELIVERY_OPTION_CHOICES)
 
-    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default='Booked')
+    status = models.CharField(
+        max_length=30,
+        choices=STATUS_CHOICES,
+        default='Pending Payment'
+    )
+
+    payment_status = models.CharField(
+        max_length=20,
+        choices=PAYMENT_STATUS_CHOICES,
+        default='pending'
+    )
+
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
+
+    stripe_session_id = models.CharField(max_length=255, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 

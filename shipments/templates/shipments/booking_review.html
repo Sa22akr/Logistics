@@ -1,0 +1,29 @@
+{% extends 'shipments/base.html' %}
+
+{% block content %}
+
+<section class="success-section">
+  <div class="success-box">
+
+    <p class="tagline">Review Booking</p>
+    <h1>Confirm your delivery</h1>
+
+    <div class="success-card">
+      <p><strong>Tracking:</strong> {{ shipment.tracking_number }}</p>
+      <p><strong>Receiver:</strong> {{ shipment.receiver_name }}</p>
+      <p><strong>Delivery:</strong> {{ shipment.delivery_option }}</p>
+      <p><strong>Weight:</strong> {{ shipment.parcel_weight }} kg</p>
+
+      <h2>£{{ shipment.price }}</h2>
+    </div>
+
+    <div class="success-actions">
+      <a href="{% url 'create_checkout_session' shipment.id %}" class="btn primary">
+        Continue to Payment
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
